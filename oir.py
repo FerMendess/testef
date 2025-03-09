@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import pyautogui
+
+screen_width, screen_height = pyautogui.size()
 
 st.set_page_config(page_title="Ambiente de Projetos", layout="wide")
 
@@ -70,7 +73,7 @@ with colcon:
         st.session_state.nucleo = 'NCon'
 with coldados:
     if st.button("NDados"):
-        st.write("nao sei mais se eh o dados")
+        st.write(screen_width)
         st.session_state.nucleo = 'NDados'
 with colni:
     if st.button("NI"):
