@@ -70,6 +70,7 @@ with colcon:
         st.session_state.nucleo = 'NCon'
 with coldados:
     if st.button("NDados"):
+        st.write("eh o dados krai")
         st.session_state.nucleo = 'NDados'
 with colni:
     if st.button("NI"):
