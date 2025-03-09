@@ -37,7 +37,7 @@ st.title("PCP")
 # Carregando os dados
 if 'pcp' not in st.session_state:
     with st.spinner('Carregando...'):
-        st.session_state.pcp = pd.read_excel(r"Ambiente-Modelo\Include\PCP Auto.xlsx", sheet_name=None)
+        st.session_state.pcp = pd.read_excel("PCP Auto.xlsx", sheet_name=None)
     
 # Acesso aos dados armazenados
 pcp = st.session_state.pcp
