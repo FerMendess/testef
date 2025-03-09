@@ -4,22 +4,6 @@ import numpy as np
 import requests
 
 # Função para detectar se é um dispositivo móvel ou desktop
-def detect_device():
-    user_agent = requests.get("https://httpbin.org/user-agent").json()['user-agent']
-    
-    if "Mobile" in user_agent or "Android" in user_agent or "iPhone" in user_agent:
-        return "mobile"
-    else:
-        return "desktop"
-
-# Detectar o dispositivo
-device = detect_device()
-
-# Exibir conteúdo com base no dispositivo
-if device == "mobile":
-    st.write("Você está acessando via dispositivo móvel.")
-else:
-    st.write("Você está acessando via computador.")
 
 st.set_page_config(page_title="Ambiente de Projetos", layout="wide")
 
@@ -52,6 +36,22 @@ st.markdown(
 
 # O título agora aparecerá sobre o 'div' sem ser coberto
 st.title("PCP")
+def detect_device():
+    user_agent = requests.get("https://httpbin.org/user-agent").json()['user-agent']
+    
+    if "Mobile" in user_agent or "Android" in user_agent or "iPhone" in user_agent:
+        return "mobile"
+    else:
+        return "desktop"
+
+# Detectar o dispositivo
+device = detect_device()
+
+# Exibir conteúdo com base no dispositivo
+if device == "mobile":
+    st.write("Você está acessando via dispositivo móvel.")
+else:
+    st.write("Você está acessando via computador.")
 
 # Carregando os dados
 if 'pcp' not in st.session_state:
