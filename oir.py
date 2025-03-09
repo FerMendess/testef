@@ -1,9 +1,25 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import pyautogui
+import requests
 
-screen_width, screen_height = pyautogui.size()
+# Função para detectar se é um dispositivo móvel ou desktop
+def detect_device():
+    user_agent = requests.get("https://httpbin.org/user-agent").json()['user-agent']
+    
+    if "Mobile" in user_agent or "Android" in user_agent or "iPhone" in user_agent:
+        return "mobile"
+    else:
+        return "desktop"
+
+# Detectar o dispositivo
+device = detect_device()
+
+# Exibir conteúdo com base no dispositivo
+if device == "mobile":
+    st.write("Você está acessando via dispositivo móvel.")
+else:
+    st.write("Você está acessando via computador.")
 
 st.set_page_config(page_title="Ambiente de Projetos", layout="wide")
 
@@ -73,7 +89,7 @@ with colcon:
         st.session_state.nucleo = 'NCon'
 with coldados:
     if st.button("NDados"):
-        st.write(screen_width)
+        st.write('a')
         st.session_state.nucleo = 'NDados'
 with colni:
     if st.button("NI"):
